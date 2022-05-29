@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/fortnite-market/static/css/main.073c9b0a.css",
-    "main.js": "/fortnite-market/static/js/main.a5ba341c.js",
-    "static/js/787.e11912fe.chunk.js": "/fortnite-market/static/js/787.e11912fe.chunk.js",
-    "static/media/logo.svg": "/fortnite-market/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/fortnite-market/static/css/main.273829ce.css",
+    "main.js": "/fortnite-market/static/js/main.3801986a.js",
     "index.html": "/fortnite-market/index.html",
-    "main.073c9b0a.css.map": "/fortnite-market/static/css/main.073c9b0a.css.map",
-    "main.a5ba341c.js.map": "/fortnite-market/static/js/main.a5ba341c.js.map",
-    "787.e11912fe.chunk.js.map": "/fortnite-market/static/js/787.e11912fe.chunk.js.map"
+    "main.273829ce.css.map": "/fortnite-market/static/css/main.273829ce.css.map",
+    "main.3801986a.js.map": "/fortnite-market/static/js/main.3801986a.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.a5ba341c.js"
+    "static/css/main.273829ce.css",
+    "static/js/main.3801986a.js"
   ]
 }
