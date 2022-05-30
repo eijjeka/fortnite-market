@@ -1,5 +1,5 @@
-export const GoodsItem = ({ data }) => {
-  const { name, images, description, price } = data;
+export const GoodsItem = ({ data, addToBasket }) => {
+  const { id, name, images, description, price } = data;
   return (
     <div className="card">
       <div className="card-image">
@@ -10,7 +10,12 @@ export const GoodsItem = ({ data }) => {
         <p>{description}</p>
       </div>
       <div className="card-action">
-        <button className="btn">Buy</button>
+        <button
+          onClick={() => addToBasket({ id, name, price })}
+          className="btn"
+        >
+          Buy
+        </button>
         <span className="right" style={{ fontSize: "1.8rem" }}>
           {price} $
         </span>
