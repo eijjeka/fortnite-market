@@ -1,6 +1,12 @@
 import { BasketItem } from "../BasketItem/BasketItem";
 
-export const BasketList = ({ order, onOpenBasket, removeFromBasket }) => {
+export const BasketList = ({
+  order,
+  onOpenBasket,
+  removeFromBasket,
+  incQuantity,
+  decQuantity,
+}) => {
   const totalPrice = order.reduce((sum, el) => {
     return sum + el.price * el.quantity;
   }, 0);
@@ -13,12 +19,19 @@ export const BasketList = ({ order, onOpenBasket, removeFromBasket }) => {
             key={item.id}
             {...item}
             removeFromBasket={removeFromBasket}
+            incQuantity={incQuantity}
+            decQuantity={decQuantity}
           />
         ))
       ) : (
         <li className="collection-item">Basket empty</li>
       )}
-      <li className="collection-item">Total quantity: {totalPrice}</li>
+      <li className="collection-item">Total quantity: {totalPrice} $</li>
+      <li className="item">
+        <button className="waves-effect right waves-light btn-small">
+          Сheckout
+        </button>
+      </li>
       <i className="material-icons basket-close" onClick={onOpenBasket}>
         close
       </i>

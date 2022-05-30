@@ -1,3 +1,12 @@
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = (name) =>
+  toast.success(`${name} add in basket`, {
+    autoClose: 2000,
+    pauseOnHover: false,
+  });
+
 export const GoodsItem = ({ data, addToBasket }) => {
   const { id, name, images, description, price } = data;
   return (
@@ -11,7 +20,10 @@ export const GoodsItem = ({ data, addToBasket }) => {
       </div>
       <div className="card-action">
         <button
-          onClick={() => addToBasket({ id, name, price })}
+          onClick={() => {
+            notify(name);
+            addToBasket({ id, name, price });
+          }}
           className="btn"
         >
           Buy
@@ -20,6 +32,7 @@ export const GoodsItem = ({ data, addToBasket }) => {
           {price} $
         </span>
       </div>
+      <ToastContainer transition={Slide} />
     </div>
   );
 };

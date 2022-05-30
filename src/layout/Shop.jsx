@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { GoodsList } from "../components/GoodsList/GoodList";
 import { Cart } from "../components/Cart/Cart";
 import { BasketList } from "../components/BasketList/BasketList";
-import { API_URL } from "../config";
+import { API_URL, API_KEY } from "../config";
 import { Preloader } from "../components/Preloader/Preloader";
 
 export const Shop = () => {
@@ -15,7 +15,7 @@ export const Shop = () => {
     setLoading(true);
     fetch(API_URL, {
       headers: {
-        Authorization: "0231ecc9-445060cc-405f7b99-c82d0006",
+        Authorization: API_KEY,
       },
     })
       .then((response) => response.json())
@@ -59,6 +59,35 @@ export const Shop = () => {
   const handleBasketShow = () => {
     setBasketShow(!isBasketShow);
   };
+
+  const incQuantity = (itemId) => {
+    const orderItem = order.map((item) => {
+      if (itemId === item.id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+      return item;
+    });
+
+    setOrder(orderItem);
+  };
+
+  const decQuantity = (itemId) => {
+    const orderItem = order.map((item) => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          quantity: item.quantity >= 0 ? item.quantity - 1 : 0,
+        };
+      }
+      return item;
+    });
+
+    setOrder(orderItem);
+  };
+
   return (
     <>
       <main className="container content">
@@ -73,6 +102,8 @@ export const Shop = () => {
             removeFromBasket={removeFromBasket}
             onOpenBasket={handleBasketShow}
             order={order}
+            incQuantity={incQuantity}
+            decQuantity={decQuantity}
           />
         )}
       </main>

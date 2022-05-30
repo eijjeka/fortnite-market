@@ -43,16 +43,12 @@ nav {
   cursor: pointer;
   z-index: 5;
   padding: 1rem;
-
-  @media (min-width: 767px) {
-    .cart {
-      top: 5rem;
-      bottom: unset;
-    }
-  }
 }
-
-.cart-quantity {
+@media (min-width: 767px) {
+  .cart {
+    top: 5rem;
+    bottom: unset;
+  }
 }
 
 .basket-list {
@@ -88,4 +84,13 @@ nav {
     top: 50%;
     opacity: 1;
   }
+}
+
+.button-inc,
+.button-dec {
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
