@@ -1,11 +1,15 @@
 import { GoodsItem } from "../GoodsItem/GoodsItem";
+import { useContext } from "react";
+import { ShopContext } from "../../context/context";
 
-export const GoodsList = ({ items, addToBasket }) => {
+export const GoodsList = () => {
+  const { goods = [] } = useContext(ShopContext);
+
   return (
     <>
       <div className="goods">
-        {items.map((item) => (
-          <GoodsItem addToBasket={addToBasket} key={item.id} data={item} />
+        {goods.map((item) => (
+          <GoodsItem key={item.id} data={item} />
         ))}
       </div>
     </>

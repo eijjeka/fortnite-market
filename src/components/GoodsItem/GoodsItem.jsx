@@ -1,3 +1,5 @@
+import { ShopContext } from "../../context/context";
+import { useContext } from "react";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,8 +9,10 @@ const notify = (name) =>
     pauseOnHover: false,
   });
 
-export const GoodsItem = ({ data, addToBasket }) => {
+export const GoodsItem = ({ data }) => {
   const { id, name, images, description, price } = data;
+
+  const { addToBasket } = useContext(ShopContext);
   return (
     <div className="card">
       <div className="card-image">
